@@ -1,0 +1,76 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "SimpleCalc"
+  },
+  "basePath": "/demo",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        {
+          "name": "op",
+          "in": "query",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "number1",
+          "in": "query",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "number2",
+          "in": "query",
+          "required": false,
+          "type": "string"
+        }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Result"
+            }
+          }
+        },
+      },
+    },
+  },
+  "definitions": {
+    "Input": {
+      "type": "object",
+      "properties": {
+        "number1": {
+          "type": "number"
+        },
+        "number2": {
+          "type": "number"
+        },
+        "op": {
+          "type": "string"
+        }
+      },
+      "title": "Input"
+    },
+    "Result": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "number"
+        }
+      },
+      "title": "Result"
+    }
+  }
+}
