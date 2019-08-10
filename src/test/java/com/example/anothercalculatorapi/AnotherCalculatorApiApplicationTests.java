@@ -17,15 +17,18 @@ import static wiremock.org.hamcrest.core.Is.is;
 public class AnotherCalculatorApiApplicationTests {
 
 	@Test
-	public void contextLoads() {
+	public void sum_1_and2_happy_flow() {
+		given().standaloneSetup(new CalculatorController()).
+				when().	get("/calc?number1=1&number2=2&op=sum").
+				then().	statusCode(200).
+				body("result",equalTo(3));
 	}
 
 	@Test
-	public void sum_1_and2_happy_flow() {
+	public void multiply_1_and2_happy_flow() {
 		given().standaloneSetup(new CalculatorController()).
-		when().	get("/calc?number1=1&number2=2&op=sum").
-		then().	statusCode(200).
-				body("result",equalTo(3));
-
+				when().	get("/calc?number1=1&number2=2&op=mult").
+				then().	statusCode(200).
+				body("result",equalTo(2));
 	}
 }
