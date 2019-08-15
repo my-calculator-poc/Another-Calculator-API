@@ -1,4 +1,4 @@
-package com.example.anothercalculatorapi;
+package com.example.anothercalculatorapi.model;
 
 public class CalculationResponse {
     private Integer result;
